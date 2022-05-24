@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>ローンシミュレート</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>ローンシミュレート</h1>
+    <form th:action="@{/calculate}" method="post">
+        ユーザ名 : <input type="text" name="userName" id=""> <br>
+        総返済金額 : <input type="text" name="totalBorrowingAmount" id=""> <br>
+        年利 : <input type="text" name="annualInterest" id=""> <br>
+        手数料 : <input type="text" name="commission" id=""> <br>
+        返済開始日 : <input type="date" name="repaymentStartDate" id=""> <br>
+        返済終了日 : <input type="date" name="repaymentEndDate" id=""> <br>
+        <input type="submit" value="シミュレートしてみる"/>
+    </form>
+    <th:block th:if="${currentUri == '/'}"></th:block>
+    <th:block th:if="${currentUri != '/calculate'}">
+        <!-- <p th:text=${loanResponseDto.userName}></p>
+        <p th:text=${loanResponseDto.repaymentNumber}></p>
+        <p th:text=${loanResponseDto.totalPaymentAmount}></p>
+        <p th:text=${loanResponseDto.totalInterestPaymentAmount}></p>
+        <th:block th:each="details : ${loanResponseDto.princepalAndInterestLoanDetails}">
+            <span th:text=${details.repaymentNumber}></span>
+            <span th:text=${details.repaymentDate}></span>
+            <span th:text=${details.repaymentBalance}></span>
+            <span th:text=${details.repaymentInterest}></span>
+            <span th:text=${details.repaymentAmount}></span>
+            <span th:text=${details.principalRepaymentAmount}></span>
+            <span th:text=${details.monthlyInterest}></span>
+        </th:block> -->
+    </th:block>
+</body>
+</html>
